@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>台灣版多倫多述情量表</title>
+<meta charset="utf-8">
+
+<style>
+	
+	body{
+		font-family: DFKai-sb;
+	}
+
+	header{
+		text-align: center;
+	}
+
+	hr{
+		width: 800px;
+	}
+
+	h3{
+		line-height: 1.5;
+	}
+	
+	.intro{
+		text-align: center;
+	}
+	
+	.ID_input{
+		width: 800px;
+		margin: auto;
+		text-align: center;
+		font-size: 120%;
+		/*border: 3px solid #73AD21;*/
+	}
+
+	.ques{
+		width: 700px;
+		margin: auto;
+		font-size: 120%;
+		line-height: 1.75;
+		/*border: 3px solid #73AD21;*/
+	}
+
+	.output{
+		width: 700px;
+		margin: auto;
+		text-align: center;
+		font-size: 100%;
+		/*border: 3px solid #73AD21;*/
+	}
+
+	.td_line{
+		border-top: 1px dashed rgb(190, 190, 190);
+	}
+
+	.choice{
+		line-height: 1.1;
+	}
+
+</style>
+
+<script>
+function CheckAns() {
+	var ques_arr = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18", "q19", "q20"];
+	var ans_arr = [];
+	for (var i=0 ; i<ques_arr.length ; i++){
+		var ques_temp = document.getElementsByName(ques_arr[i]);
+		for (var j=0 ; j<5 ; j++){
+  			if (ques_temp[j].checked) {
+    		ans_arr.push(ques_temp[j].value);
+  			}
+		}
+	}
+
+	var myID = document.getElementById("subjID").value;
+	if (ans_arr.length == 20){
+		if (myID.length > 0){
+			document.getElementById("mySubmit").disabled = false;
+		} else if (myID.length <= 0){
+    		document.getElementById("mySubmit").disabled = true;
+    	}
+    }
+}
+
+function download(subjID, subjID, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20) {
+
+	var filename = subjID + '.csv'
+  	var arr = new Array(subjID,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20);
+  	var pom = document.createElement('a');
+
+  	pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(arr));
+  	pom.setAttribute('download', filename);
+  	pom.style.display = 'none';
+  	document.body.appendChild(pom);
+  	pom.click();
+  	document.body.removeChild(pom);
+}
+</script>
+
+</head>
+<body>
+	<header>
+		<h1>台灣版多倫多述情量表</h1>
+	</header>
+
+	<div class="intro">
+		<h3>
+		請標明下面20個陳述句在何種程度符合您的情況，<br />
+		每一題可在以下5個選項之中選擇一項(單選)。<br />
+		①很不同意 ②不同意 ③沒意見(不同意，也不反對) ④同意 ⑤很同意
+		</h3>	
+	</div>
+
+	
+
+	<form onsubmit="download(this['subjID'].value, this['subjID'].value, this['q1'].value, this['q2'].value, this['q3'].value, this['q4'].value, this['q5'].value, this['q6'].value, this['q7'].value, this['q8'].value, this['q9'].value, this['q10'].value, this['q11'].value, this['q12'].value, this['q13'].value, this['q14'].value, this['q15'].value, this['q16'].value, this['q17'].value, this['q18'].value, this['q19'].value, this['q20'].value)">
+		
+		<div class="ID_input">
+  		受試編號&nbsp
+  		<input type="text" name="subjID" id="subjID" value="" onchange="CheckAns()">
+  		</div>
+		
+		<br />
+  		<hr>
+
+  		<div class="ques">
+		<table>
+		  <tr>
+		    <th class="choice"></th>
+		    <th class="choice"></th>
+		    <th class="choice" align=middle>①</th>
+		    <th class="choice" align=middle>②</th>
+		    <th class="choice" align=middle>③</th>
+		    <th class="choice" align=middle>④</th>
+		    <th class="choice" align=middle>⑤</th> 
+		  </tr>
+		  
+		  <tr>
+		    <td class="choice"></td>
+		    <td class="choice"></td>
+		    <td class="choice" align=middle>很</td>
+		    <td class="choice" align=middle>不</td>
+		    <td class="choice" align=middle>沒</td>
+		    <td class="choice" align=middle>同</td>
+		    <td class="choice" align=middle>很</td>
+		  </tr>
+
+		  <tr>
+		    <td class="choice"></td>
+		    <td class="choice"></td>
+		    <td class="choice" align=middle>不</td>
+		    <td class="choice" align=middle>同</td>
+		    <td class="choice" align=middle>意</td>
+		    <td class="choice" align=middle></td>
+		    <td class="choice" align=middle>同</td>
+		  </tr>
+
+		  <tr>
+		    <td class="choice"></td>
+		    <td class="choice"></td>
+		    <td class="choice" align=middle>同</td>
+		    <td class="choice" align=middle>意</td>
+		    <td class="choice" align=middle>見</td>
+		    <td class="choice" align=middle>意</td>
+		    <td class="choice" align=middle>意</td>
+		  </tr>
+		  
+		  <tr>
+		    <td></td>
+		    <td class="choice"></td>
+		    <td class="choice" align=middle>意</td>
+		    <td class="choice" align=middle></td>
+		    <td class="choice" align=middle></td>
+		    <td class="choice" align=middle></td>
+		    <td class="choice" align=middle></td>
+		  </tr>
+
+		  <tr>
+		    <td class="td_line" align=middle>1.</td>
+		    <td class="td_line">我常常不清楚自己感受到的是什麼樣的情緒。</td>
+		    <td class="td_line"><input type="radio" name="q1" value="1" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q1" value="2" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q1" value="3" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q1" value="4" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q1" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+		  
+		  <tr>
+		    <td  align=middle>2.</td>
+		    <td >我很難找到恰當的言詞來描述我的感受。</td>
+		    <td ><input type="radio" name="q2" value="1" onclick="CheckAns()"/></td>
+		    <td ><input type="radio" name="q2" value="2" onclick="CheckAns()"/></td>
+		    <td ><input type="radio" name="q2" value="3" onclick="CheckAns()"/></td>
+		    <td ><input type="radio" name="q2" value="4" onclick="CheckAns()"/></td>
+		    <td ><input type="radio" name="q2" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>3.</td>
+		    <td>我有一些連醫生也不了解的身體感覺。</td>
+		    <td><input type="radio" name="q3" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q3" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q3" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q3" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q3" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>4.</td>
+		    <td>我能輕易地描述出自己的感受。</td>
+		    <td><input type="radio" name="q4" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q4" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q4" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q4" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q4" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>5.</td>
+		    <td>我比較喜歡分析問題而不僅僅是描述它們。</td>
+		    <td><input type="radio" name="q5" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q5" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q5" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q5" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q5" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td class="td_line" align=middle>6.</td>
+		    <td class="td_line">當我心裡難受時，我分不清究竟是悲傷、害怕還是憤怒。</td>
+		    <td class="td_line"><input type="radio" name="q6" value="1" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q6" value="2" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q6" value="3" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q6" value="4" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q6" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>7.</td>
+		    <td>我常常被我身體的一些感覺所困惑。</td>
+		    <td><input type="radio" name="q7" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q7" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q7" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q7" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q7" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>8.</td>
+		    <td>我寧願任事情發生，而不去瞭解它們為何會發展成那樣。</td>
+		    <td><input type="radio" name="q8" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q8" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q8" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q8" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q8" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>9.</td>
+		    <td>我有一些自己難以識別的感受。</td>
+		    <td><input type="radio" name="q9" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q9" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q9" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q9" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q9" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>10.</td>
+		    <td>能夠感受自己內在的情緒是必要的。</td>
+		    <td><input type="radio" name="q10" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q10" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q10" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q10" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q10" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td class="td_line" align=middle>11.</td>
+		    <td class="td_line">我難以描述我對別人有何感受。</td>
+		    <td class="td_line"><input type="radio" name="q11" value="1" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q11" value="2" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q11" value="3" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q11" value="4" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q11" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>12.</td>
+		    <td>別人告訴我要多描述一些我的感受。</td>
+		    <td><input type="radio" name="q12" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q12" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q12" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q12" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q12" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>13.</td>
+		    <td>我不知道自己的內心怎麼了。</td>
+		    <td><input type="radio" name="q13" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q13" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q13" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q13" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q13" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>14.</td>
+		    <td>我常常不知道我為何會覺得生氣。</td>
+		    <td><input type="radio" name="q14" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q14" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q14" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q14" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q14" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>15.</td>
+		    <td>我比較喜歡和別人談論他們的日常活動而不是他們的感受。</td>
+		    <td><input type="radio" name="q15" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q15" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q15" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q15" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q15" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td class="td_line" align=middle>16.</td>
+		    <td class="td_line">我比較喜歡看〝輕鬆〞的娛樂電影而不是探討心理的劇情片。</td>
+		    <td class="td_line"><input type="radio" name="q16" value="1" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q16" value="2" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q16" value="3" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q16" value="4" onclick="CheckAns()"/></td>
+		    <td class="td_line"><input type="radio" name="q16" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>17.</td>
+		    <td>即使是對親近的朋友，我也難以表露我內心最深處的感受。</td>
+		    <td><input type="radio" name="q17" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q17" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q17" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q17" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q17" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>18.</td>
+		    <td>即使在我們沈默的時候，我也能感到與另一個人親密的感覺。</td>
+		    <td><input type="radio" name="q18" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q18" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q18" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q18" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q18" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>19.</td>
+		    <td>我覺得省察自己的感受對於解決個人問題是有用的。</td>
+		    <td><input type="radio" name="q19" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q19" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q19" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q19" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q19" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+
+		  <tr>
+		    <td align=middle>20.</td>
+		    <td>尋找電影或戲劇中隱藏的意義會使人從享樂中分心。</td>
+		    <td><input type="radio" name="q20" value="1" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q20" value="2" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q20" value="3" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q20" value="4" onclick="CheckAns()"/></td>
+		    <td><input type="radio" name="q20" value="5" onclick="CheckAns()"/></td>
+		  </tr>
+		</table>
+		</div>
+
+  		<hr>
+  		<br />
+		<div class="output">
+  		<input type="submit" value="Download" id="mySubmit" disabled>
+  		</div>
+
+	</form>
+
+</body>
